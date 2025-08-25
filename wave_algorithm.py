@@ -2,7 +2,7 @@ import openpyxl
 from collections import deque
 
 def read_excel_matrix(file_path):
-    wb = openpyxl.load_workbook('Поле игры.xlsx')
+    wb = openpyxl.load_workbook('Playing field.xlsx')
     sheet = wb.active
     matrix = []
     for row in sheet.iter_rows(values_only=True):
@@ -51,7 +51,7 @@ def wave_algorithm(matrix, start, end):
     path.reverse()
     return path
 
-excel_file = "Поле игры.xlsx"
+excel_file = "Playing field.xlsx"
 print("Starting point")
 start_point = (int(input('enter line number: ')) - 1, int(input('enter column number: ')) - 1)
 print("End point")
