@@ -7,9 +7,6 @@ def read_excel_matrix(file_path):
     matrix = []
     for row in sheet.iter_rows(values_only=True):
         matrix.append(list(row))
-    #print("\nНачальная матрица:")
-    #for row in matrix:
-        #print(row)
     return matrix
 
 def wave_algorithm(matrix, start, end):
@@ -34,11 +31,6 @@ def wave_algorithm(matrix, start, end):
                         queue = deque()
                         break
 
-    #print("\nВолновая матрица:")
-    #for row in wave_matrix:
-        #print(" ".join(f"{val:3}" if val != -1 else " -1" for val in row))
-    #print()
-
     if wave_matrix[end[0]][end[1]] == -1:
         return None
 
@@ -60,17 +52,17 @@ def wave_algorithm(matrix, start, end):
     return path
 
 excel_file = "Поле игры.xlsx"
-print("Начальная точка")
-start_point = (int(input('Введите номер строки: ')) - 1, int(input('Введите номер столбца: ')) - 1)
-print("Конечная точка")
-end_point = (int(input('Введите номер строки: ')) - 1, int(input('Введите номер столбца: ')) - 1)
+print("Starting point")
+start_point = (int(input('enter line number: ')) - 1, int(input('enter column number: ')) - 1)
+print("End point")
+end_point = (int(input('enter line number: ')) - 1, int(input('enter column number: ')) - 1)
 #print(start_point, end_point)
 
 matrix = read_excel_matrix(excel_file)
 path = wave_algorithm(matrix, start_point, end_point)
 
-print("Кратчайший путь найден. Длина пути:", len(path) - 1)
-print("Координаты пути:", path)
+print("The shortest path has been found. Path length:", len(path) - 1)
+print("Path coord:", path)
 
 if None:
-    print("Путь не найден. Возможно, он заблокирован.")
+    print("Path not found. It may be blocked.")
