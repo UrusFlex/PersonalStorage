@@ -56,7 +56,6 @@ print("Starting point")
 start_point = (int(input('enter line number: ')) - 1, int(input('enter column number: ')) - 1)
 print("End point")
 end_point = (int(input('enter line number: ')) - 1, int(input('enter column number: ')) - 1)
-#print(start_point, end_point)
 
 matrix = read_excel_matrix(excel_file)
 path = wave_algorithm(matrix, start_point, end_point)
